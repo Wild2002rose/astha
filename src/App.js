@@ -1,24 +1,27 @@
-import logo from './logo.svg';
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Final from './components/Final';
+import Appointment from './components/Appointment';
 import './App.css';
+import Branches from './components/Branches';
+import Singlebranch from './components/Singlebranch';
+import Medorder from './components/Medicine/Medorder';
+import Chairman from './components/Chairman';
+import Director from './components/Director';
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Routes>
+        <Route path='/' element={<Final />} />
+        <Route path='/appointment' element={<Appointment />} />
+        <Route path='/branches' element ={<Branches/>} />
+        <Route path='/singlebranch/:id' element={<Singlebranch/>} />
+        <Route path='/medorder' element={<Medorder/>} />
+        <Route path='/chairman' element={<Chairman/>}/>
+        <Route path='/director' element={<Director/>}/>
+      </Routes>
+    </Router>
   );
 }
 
